@@ -73,3 +73,41 @@ df.describe()
 # 75th Percentile: 37.25 years old
 # Maximum: 70 years old
 
+df.hist(figsize = (10,10), rwidth = 0.95, color = 'skyblue', grid = False)
+plt.title('Distribbution')
+# Age histogram representation appears to be right-skewed(fall positive side of the peak).
+# Other histogram have values ranging from 1 to 7 which exhibit no skewness.
+
+plt.figure(figsize = (6,6))
+sns.histplot(df['Age'], kde = True)
+plt.title('Age Distribution')
+
+# kde plot
+#sns.kdeplot(data=df, x='Age')
+# Age distribution is right-skewed. Let's understand it this way, it means that most people in the group are younger and there are very few older people in the data set. Imagine seesaw where younger > older people.
+
+plt.figure(figsize=(6,6))
+sns.boxplot(data = df)                              # in ref code it was like this(sns.boxplot(df)) that the python raise an error
+plt.xticks(rotation=40)
+plt.title('Box-plot of numeric columns')
+
+# Box plot shows that only the Age column has outliers, while the other numeric columns do not
+
+plt.figure(figsize = (4,4))
+sns.boxplot(data = df, y = 'Age')
+plt.title('boxplot of Age')
+# Due to the small size, I can easily identify 7 outliers, primarily in the Age column
+
+## Creating an outliers function for calculating outliers in dataset
+def outliers():
+    Q1=df['Age'].quantile(0.25) ## 1st quartile is 25.75
+    Q2=df['Age'].quantile(0.5) ## 2nd quartile is 30 i.e. meadian
+    Q3=df['Age'].quantile(0.75) ## 3rd quartile is 37.25
+    IQR=Q3-Q1 ## Inter quartile range is 11.5
+    lower_bound=Q1-1.5*IQR ## Lower whisker is 8.5
+    upper_bound=Q3+1.5*IQR ## Upper whisker is 54.5
+    ## Anything above the upper_bound and below the lower_bound becomes the outliers
+    return df[(df['Age']<lower_bound) | (df['Age']>upper_bound)]
+
+## Calling outlier function
+outliers()
