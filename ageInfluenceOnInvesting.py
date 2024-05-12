@@ -111,3 +111,46 @@ def outliers():
 
 ## Calling outlier function
 outliers()
+
+plt.figure(figsize = (6,6))
+sns.boxplot(data = df, x = 'gender', y = 'Age')
+plt.title('Age dist by gender')
+plt.xlabel('gender')
+plt.ylabel('age')
+plt.xticks(rotation = 30)
+# After conducting categorical and numerical analysis comparing Gender and Age using box plots, it is discovered that 
+#there are 6 outliers in the male and 1 outlier in the female category. But in initial analysis, only male outliers were observed
+
+sns.countplot(data = df, x = 'Occupation', palette = 'Set1',edgecolor = 'black')
+plt.title('occupation dist')
+plt.xlabel('occupation')
+# Salaried investors dominate the dataset in terms of occupation
+
+df_encouded = pd.get_dummies(df, columns=['gender'])
+
+#The Gender column has been one-hot encoded, this will result two new columns i.e.
+# Gender_Male and Gender_Female
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
