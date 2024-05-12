@@ -129,7 +129,7 @@ plt.xlabel('occupation')
 df_encouded = pd.get_dummies(df, columns=['gender'])
 
 #The Gender column has been one-hot encoded, this will result two new columns i.e.
-# Gender_Male and Gender_Female
+# Gender_Male and Gender_Female o
 
 
 
