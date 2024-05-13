@@ -148,16 +148,24 @@ plt.xticks(rotation = 20)
 #Stacked bar chart clearly illustrates that among investors, the salaried occupation is the
 #most common for both males and females
 
+table = pd.crosstab(index = df['Purpose_investment'], columns = df['Factors_investment'])
+table.plot(kind = 'bar', stacked = True)
+plt.xticks(rotation = 20)
+#In the stacked bar chart that among investors, the most important purpose for
+#investment is wealth creation and the important factor influencing this decision is the
+#expected return on investment
 
+numeric_columns=[]
+for column in df.columns:
+    if df[column].dtype=='int64':
+        numeric_columns.append(column)
+        
+corr_matrix= df[numeric_columns].corr()
+# Using for loop here eliminates the necessity of hardcoding column names and rather it
+# easier to handle dataset modifications
 
-
-
-
-
-
-
-
-
-
-
+sns.heatmap(corr_matrix, cmap = 'coolwarm', annot=True)
+plt.title('corr Heatmap')
+# G-secs and Corporate bonds show a noticeable positive relationship with a correlation
+# coefficient of 0.61 on the correlation matrix
 
