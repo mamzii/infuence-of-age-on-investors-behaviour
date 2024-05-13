@@ -131,15 +131,22 @@ df_encouded = pd.get_dummies(df, columns=['gender'])
 #The Gender column has been one-hot encoded, this will result two new columns i.e.
 # Gender_Male and Gender_Female o
 
+male_count = df_encouded['gender_Male'].sum()
+female_count = df_encouded['gender_Female'].sum()
+labels = ['male', 'female']
+sizes = [male_count,female_count]
+colors = ['blue', 'pink']
+plt.figure(figsize = (6,6))
+plt.pie(sizes, colors=colors, labels = labels, startangle=50, autopct='%1.1f%%') #labels,colors, autopct='%1.1f%')
+plt.title('gender dist')
+#Pie chart clearly indicates that the majority of respondents in the dataset are males,
+#significantly outnumbering females
 
-
-
-
-
-
-
-
-
+table = pd.crosstab(index = df['gender'], columns = df['Occupation'])
+table.plot(kind = 'bar', stacked = True)
+plt.xticks(rotation = 20)
+#Stacked bar chart clearly illustrates that among investors, the salaried occupation is the
+#most common for both males and females
 
 
 
