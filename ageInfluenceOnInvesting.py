@@ -169,3 +169,60 @@ plt.title('corr Heatmap')
 # G-secs and Corporate bonds show a noticeable positive relationship with a correlation
 # coefficient of 0.61 on the correlation matrix
 
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['Mutual_funds'], cmap = colormap)
+plt.xlabel('Age')
+plt.ylabel('Mutual funds')
+plt.title('Scatter plot: age vs. MF')
+plt.axhline(y = 7, color = 'green', linestyle = '--', label = 'Rank 7')
+plt.axvline(x = 20, color = 'red', linestyle = '--',label = 'age 20')
+plt.axvline(x = 39, color = 'red', linestyle = '--',label = 'age 39')
+plt.colorbar(label = 'Rank')
+plt.legend()
+# It appears that investors in the age group of 20 to 39 consistently assigned the highest
+# ranking 7 to mutual funds, indicating strong preference for this investment avenue
+
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['Equity_market'], cmap = colormap)
+plt.xlabel('age')
+plt.ylabel('Equity')
+plt.title('scatter plot: age vs. equity')
+plt.axhline(y = 5,color = 'green', linestyle = '--', label = 'Rank5')
+plt.axhline(y = 7,color = 'green', linestyle = '--', label = 'Rank7')
+plt.axvline(x = 27 ,color = 'red', linestyle = '--', label = 'Age27')
+plt.axvline(x = 38,color = 'red', linestyle = '--', label = 'Age38')
+plt.colorbar(label = 'Rank')
+plt.legend()
+# It appears that investors in the age group of 27 to 38 consistently assigned the highest
+# ranking 7 to equity, indicating strong preference for this investment avenue
+
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['Corporate_bonds'], cmap = colormap)
+plt.xlabel('age')
+plt.ylabel('Corprate Bonds')
+plt.title('scatter plot: age vs. corporare bonds')
+plt.axhline(y = 4,color = 'green', linestyle = '--', label = 'Rank4')
+plt.axvline(x = 21 ,color = 'red', linestyle = '--', label = 'Age21')
+plt.axvline(x = 37,color = 'red', linestyle = '--', label = 'Age37')
+plt.colorbar(label = 'Rank')
+plt.legend()
+# Investors falling within the age range of 21 to 37 predominantly assign a ranking of 4 to
+# corporate bonds, suggesting that this group considers corporate bonds as moderately
+# important in their investment choices
+
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['G_secs'], cmap = colormap)
+plt.xlabel('age')
+plt.ylabel('G secs')
+plt.title('scatter plot: age vs. G_secs')
+plt.axhline(y = 3 ,color = 'green', linestyle = '--', label = 'Rank3')
+plt.axvline(x = 23 ,color = 'red', linestyle = '--', label = 'Age20')
+plt.axvline(x = 35,color = 'red', linestyle = '--', label = 'Age40')
+plt.colorbar(label = 'Rank')
+plt.legend()
+# Investors aged 23 to 35 generally consider government securities with a ranking of 3,
+# signifying moderate importance
