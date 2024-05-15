@@ -226,3 +226,49 @@ plt.colorbar(label = 'Rank')
 plt.legend()
 # Investors aged 23 to 35 generally consider government securities with a ranking of 3,
 # signifying moderate importance
+
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['FD'],c= df['FD'], cmap = colormap, marker = 'o')
+plt.xlabel('age')
+plt.ylabel('fixed deposite')
+plt.title('scatter plot: age vs. FD')
+plt.axhline(y = 5 ,color = 'green', linestyle = '--', label = 'Rank5')
+plt.axvline(x = 23 ,color = 'red', linestyle = '--', label = 'Age20')
+plt.axvline(x = 39,color = 'red', linestyle = '--', label = 'Age40')
+plt.colorbar(label = 'Rank')
+plt.legend()
+
+# Investors aged 23 to 39 commonly prioritize fixed deposits, assigning them a ranking of
+# 5, indicating a moderate level of importance
+
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['PPF'],c= df['PPF'], cmap = colormap, marker = 'o')
+plt.xlabel('age')
+plt.ylabel('Public Provident Fund')
+plt.title('scatter plot: age vs.ppf')
+plt.axhline(y =7 ,color = 'green', linestyle = '--', label = 'Rank7')
+plt.axvline(x = 22 ,color = 'red', linestyle = '--', label = 'Age20')
+plt.axvline(x = 40,color = 'red', linestyle = '--', label = 'Age40')
+plt.colorbar(label = 'Rank')
+plt.legend()
+
+#Investors between the ages of 22 to 40, the majority of investors ranked PPF as highly
+#important 7 in their investment decisions
+
+plt.figure(figsize=(4,4))
+colormap = plt.cm.coolwarm
+plt.scatter(df['Age'], df['Gold/SGB'],c= df['Gold/SGB'], cmap = colormap, marker = 'o')
+plt.xlabel('age')
+plt.ylabel('Gold/SGB')
+plt.title('scatter plot: age vs.ppf')
+plt.axhline(y =7 ,color = 'green', linestyle = '--', label = 'Rank7')
+plt.axhline(y =6 ,color = 'lime', linestyle = '--', label = 'Rank6')
+plt.axhline(y =3 ,color = 'pink', linestyle = '--', label = 'Rank3')
+plt.axvline(x = 23 ,color = 'red', linestyle = '--', label = 'Age20')
+plt.axvline(x = 35,color = 'red', linestyle = '--', label = 'Age40')
+plt.colorbar(label = 'Rank')
+plt.legend()
+
+#Gold/SGB received the ranking 7 from investors in the age group of 23 to 35
